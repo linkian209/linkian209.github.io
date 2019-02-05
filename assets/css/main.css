@@ -98,7 +98,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #00037A;
+		background: #0739C3;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2515,27 +2515,27 @@ input, select, textarea {
 			}
 
 				.wrapper.style1 .icon.major:before {
-					color: #5558D3;
+					color: #4D6FCD;
 				}
 
 				.wrapper.style1-alt .icon.major:before {
-					color: #3034D2;
+					color: #2356E2;
 				}
 
 				.wrapper.style2 .icon.major:before {
-					color: #4A83CD;
+					color: #478ACA;
 				}
 
 				.wrapper.style2-alt .icon.major:before {
-					color: #236DCC;
+					color: #1B7FE0;
 				}
 
 				.wrapper.style3 .icon.major:before {
-					color: #774ED1;
+					color: #5654D1;
 				}
 
 				.wrapper.style3-alt .icon.major:before {
-					color: #5C27D0;
+					color: #2F2BE4;
 				}
 
 /* Image */
@@ -3226,27 +3226,27 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #5558D3;
+			background-color: #2356E2;
 		}
 
 		.wrapper.style1-alt {
-			background-color: #3034D2;
+			background-color: #2356E2;
 		}
 
 		.wrapper.style2 {
-			background-color: #4A83CD;
+			background-color: #478ACA;
 		}
 
 		.wrapper.style2-alt {
-			background-color: #236DCC;
+			background-color: #1B7FE0;
 		}
 
 		.wrapper.style3 {
-			background-color: #774ED1;
+			background-color: #5654D1;
 		}
 
 		.wrapper.style3-alt {
-			background-color: #5C27D0;
+			background-color: #2F2BE4;
 		}
 
 		.wrapper.fullscreen {
@@ -3507,7 +3507,7 @@ input, select, textarea {
 
 	#sidebar {
 		padding: 2.5em 2.5em 0.5em 2.5em ;
-		background: #0E13C6;
+		background: #0739C3;
 		cursor: default;
 		height: 100vh;
 		left: 0;
@@ -3744,14 +3744,14 @@ input, select, textarea {
 			}
 
 			#sidebar nav a:before {
-				background: #450AC4;
+				background: #02288F;
 			}
 
 			#sidebar nav a:after {
-				background-image: -moz-linear-gradient(to right, #0858BF, #9778DA);
-				background-image: -webkit-linear-gradient(to right, #0858BF, #9778DA);
-				background-image: -ms-linear-gradient(to right, #0858BF, #9778DA);
-				background-image: linear-gradient(to right, #0858BF, #9778DA);
+				background-image: -moz-linear-gradient(to right, #0463BF, #8280CE);
+				background-image: -webkit-linear-gradient(to right, #0463BF, #8280CE);
+				background-image: -ms-linear-gradient(to right, #0463BF, #8280CE);
+				background-image: linear-gradient(to right, #0463BF, #8280CE);
 				-moz-transition: max-width 0.2s ease;
 				-webkit-transition: max-width 0.2s ease;
 				-ms-transition: max-width 0.2s ease;
