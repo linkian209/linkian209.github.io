@@ -154,7 +154,10 @@
 								<h2>Commercial Timesharing, Inc. - Computer Engineer</h2>
 								<h3>January 2016 - Current</h3>
 								<p>
-									At CTI, I work as a member of the Goodyear Level 1 team.
+									At CTI, I work as a member of the Goodyear Level 1 team. I work with material handling
+									and machine automation to facilitate the automatic conveying of tires from creation
+									to final finish. I utilize my knowledge of Oracle Pro*C and Red Hat Enterprise Linux to
+									create system level programs
 								</p>
 							</section>
 						</div>
@@ -175,21 +178,24 @@
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<input type="text" name="name" id="name" required/>
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<input type="email" name="email" id="email" required/>
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="5"></textarea>
+											<textarea name="message" id="message" rows="5" required></textarea>
 										</div>
 									</div>
 									<ul class="actions">
 										<li>
-											<span class="button" onclick='SubmitForm();'>
-											Send Message</span>
+											<button class="progress-button" data-style="fill" data-horizontal=""
+											type="submit">
+												<span class="button-content">Send Message</span>
+												<span class="button-progress"></span>
+											</button>
 										</li>
 									</ul>
 								</form>
@@ -219,9 +225,9 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script>
+			var email_regex = /[^\s@]+@[^\s@]+\.[^\s@]+/
 			function SubmitForm()
 			{
-				console.log('In here');
 				// Assemble post data
 				var data = {
 						'name': document.contact.name.value,
@@ -229,12 +235,17 @@
 						'message': document.contact.message.value
 				};
 
-				$.post('http://127.0.0.1:5000/contact', data, function(retval){
+				// Submit Request
+				$.post('http://contact.nineworlds.xyz/contact', data, function(retval){
 					console.log(retval);
 				}).fail(function(retval){
 					console.log(retval)
 				});
+
+				return false;
 			}
+
+			$("#contact_div").submit(SubmitForm);
 		</script>
 	</body>
 </html>
