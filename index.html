@@ -263,6 +263,7 @@
 					}, 1000);
 					console.log(retval);
 				}).fail(function(retval){
+					$('#progress-div-progress').width(0);
 					$('#progress-div').removeClass('state-loading');
 					$('#progress-div').addClass('state-error');
 					setTimeout(function(){
