@@ -1,0 +1,83 @@
+@import url(font-awesome.min.css);
+
+.progress-div {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.progress-div .content {
+    position: relative;
+    display: block;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.progress-div .content::before {
+    content: "\f00c";
+}
+
+.progress-div .content::after {
+    content: "\f00d";
+}
+
+.progress-div.state-success .content::before,
+.progress-div.state-error .content::after {
+    opacity: 1;
+}
+
+.progress-div .content::before,
+.progress-div .content::after {
+    position: absolute;
+    font-family: FontAwesome;
+    font-weight: 900;
+    font-size: 100px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s 0.3s;
+	transition: opacity 0.3s 0.3s;
+	top: 150%;
+	right: auto;
+	left: 50%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.progress-div .progress {
+    background: #014a93;
+}
+
+.progress-div .progress-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+	-webkit-transition: width 0.3s, opacity 0.3s;
+	transition: width 0.3s, opacity 0.3s;
+    background:  #0163c6;
+}
+
+.progress-div.state-loading {
+    -webkit-transform: scaleY(.1);
+    transform: scaleY(.1);
+}
+
+.progress-div.state-loading .content {
+    opacity: 0;
+}
+
+.progress-div.state-success .content,
+.progress-div.state-error .content {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.notransition {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
