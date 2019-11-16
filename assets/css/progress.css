@@ -41,14 +41,14 @@
 	top: 150%;
 	right: auto;
 	left: 50%;
-	-webkit-transition: opacity 0.3s;
+	-webkit-transition: opacity 0.3s
 	transition: opacity 0.3s;
 	-webkit-transform: translate3d(-50%, -50%, 0);
 	transform: translate3d(-50%, -50%, 0);
 }
 
 .progress-div .progress {
-    background: #014a93;
+    background: #2c52ba;
 }
 
 .progress-div .progress-inner {
@@ -59,7 +59,7 @@
     height: 100%;
 	-webkit-transition: width 0.3s, opacity 0.3s;
 	transition: width 0.3s, opacity 0.3s;
-    background:  #0163c6;
+    background:  #305bcf;
 }
 
 .progress-div.state-loading {

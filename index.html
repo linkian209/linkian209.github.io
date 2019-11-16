@@ -24,7 +24,6 @@
 							<li><a href="#one">The Myth</a></li>
 							<li><a href="#two">The Legend</a></li>
 							<li><a href="#three">Ian Drake</a></li>
-							<li><a href="#contact">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -148,28 +147,7 @@
 						<p>
 							The journey towards achieving my goals is full of strife and challenge. By overcoming
 							these, I am able to grow into a stronger, more driven individiual.
-						</p>
-						<div class="features">
-							<section>
-								<span class="icon major fa-building"></span>
-								<h2>Commercial Timesharing, Inc. - Computer Engineer</h2>
-								<h3>January 2016 - Current</h3>
-								<p>
-									At CTI, I work as a member of the Goodyear Level 1 team. I work with material handling
-									and machine automation to facilitate the automatic conveying of tires from creation
-									to final finish. I utilize my knowledge of Oracle Pro*C and Red Hat Enterprise Linux to
-									create system level programs
-								</p>
-							</section>
-						</div>
-					</div>
-				</section>
 
-				<!-- Contact Area -->
-				<section id="contact" class="wrapper style2-alt fade-up">
-					<div class="inner">
-						<h2>Contact Me</h2>
-						<p>
 							If you wish to know more about me or want to ask any questions, feel free to fill out
 							the following form and I will get back to you as soon as I can!
 						</p>
@@ -237,39 +215,44 @@
 				// Start transitioning form
 				$('#progress-div').addClass('state-loading');
 
-				// Assemble post data
-				var data = {
-						'name': document.contact.name.value,
-						'email': document.contact.email.value,
-						'message': document.contact.message.value
-				};
-
 				// Increment width before we send request
 				$('#progress-div-progress').width('25%');
 
 				// Submit Request
-				$.post('https://contact.nineworlds.xyz/contact', data, function(retval){
-					$('#progress-div-progress').width('100%');
-					setTimeout(function(){
+				$.ajax({
+					url: 'https://contact.nineworlds.xyz/contact', 
+					type: 'POST',
+					data: {
+						'name': document.contact.name.value,
+						'email': document.contact.email.value,
+						'message': document.contact.message.value
+					}, 
+					dataType: 'json',
+					async: true,
+					crossDomain: true,
+					success: function(retval) {
+						$('#progress-div-progress').width('100%');
+						setTimeout(function(){
+							$('#progress-div-progress').width(0);
+							$('#progress-div').removeClass('state-loading');
+							$('#progress-div').addClass('state-success');
+							setTimeout(function(){
+								document.contact.name.value = '';
+								document.contact.email.value = '';
+								document.contact.message.value = '';
+								$('#progress-div').removeClass('state-success');
+							}, 3000)
+						}, 1000);
+					},
+				    error: function(retval){
 						$('#progress-div-progress').width(0);
 						$('#progress-div').removeClass('state-loading');
-						$('#progress-div').addClass('state-success');
+						$('#progress-div').addClass('state-error');
 						setTimeout(function(){
-							document.contact.name.value = '';
-							document.contact.email.value = '';
-							document.contact.message.value = '';
-							$('#progress-div').removeClass('state-success');
+							$('#progress-div').removeClass('state-error');
 						}, 3000)
-					}, 1000);
-					console.log(retval);
-				}).fail(function(retval){
-					$('#progress-div-progress').width(0);
-					$('#progress-div').removeClass('state-loading');
-					$('#progress-div').addClass('state-error');
-					setTimeout(function(){
-						$('#progress-div').removeClass('state-error');
-					}, 3000)
-					console.log(retval)
+						console.log(retval.responseJSON['error']);
+					}
 				});
 
 				return false;
